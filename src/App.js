@@ -3,6 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  constructor() {
+    super()
+    this.state = {value: ""}
+  }
+
   render() {
     return (
       <div className="App">
@@ -10,7 +16,15 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">Add Your Code Here...</p>
+
+        <input type="text" onChange={(event) => {
+          debugger
+          console.log(event)
+          const userInput = event.target.value
+          this.setState({value:userInput})
+        }}/>
+
+        <p className="App-intro"> {this.state.value}</p>
       </div>
     );
   }
